@@ -1,0 +1,40 @@
+<h2>{{ isLoginMode ? 'Login' : 'Register' }}</h2>
+
+<form (ngSubmit)="onSubmit()">
+  <div *ngIf="!isLoginMode">
+    <input
+      type="email"
+      id="email"
+      [(ngModel)]="email"
+      name="email"
+      required
+      placeholder="Enter your email"
+    />
+  </div>
+
+  <input
+    type="text"
+    id="username"
+    [(ngModel)]="username"
+    name="username"
+    required
+    placeholder="Enter your username"
+  />
+
+  <input
+    type="password"
+    id="password"
+    [(ngModel)]="password"
+    name="password"
+    required
+    placeholder="Enter your password"
+  />
+
+  <button type="submit">{{ isLoginMode ? 'Login' : 'Register' }}</button>
+</form>
+
+<p *ngIf="message">{{ message }}</p>
+
+<button (click)="toggleMode()">
+  Switch to {{ isLoginMode ? 'Register' : 'Login' }}
+</button>
